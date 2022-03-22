@@ -1,13 +1,12 @@
-from fastapi import FastAPI
 import uvicorn
+from fastapi import FastAPI
 
+from endpoints import users
 from db.base import database
 
-app = FastAPI()
+app = FastAPI(title = "Match test")
+app.include_router(users.router, prefix = "/users", tags = ["users"] )
 
-@app.get("/")
-async def root ():
-    return {"message":"Hello my first api web-site"}
 
 @app.on_event("startup")
 async def startup():

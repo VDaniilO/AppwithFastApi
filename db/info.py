@@ -1,6 +1,7 @@
 import sqlalchemy
-from .base import metadata
 import datetime
+
+from .base import metadata
 
 #create table with info about user
 users = sqlalchemy.Table(
@@ -11,5 +12,7 @@ users = sqlalchemy.Table(
     sqlalchemy.Column("name", sqlalchemy.String),
     sqlalchemy.Column("surname", sqlalchemy.String),
     sqlalchemy.Column("gender", sqlalchemy.String),
-#    sqlalchemy.Column("photo", sqlalchemy.String)
+    sqlalchemy.Column("description", sqlalchemy.String),
+    sqlalchemy.Column("hashed_password", sqlalchemy.String)
+#   sqlalchemy.Column("photo", sqlalchemy.String)
 )
